@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const validateColor = (clr) => (/^#([0-9a-f]{3}){1,2}$/i).test(clr)
 const nameSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -13,7 +12,7 @@ const nameSchema = new mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-        validate: [validateColor, 'Invalid color']
+        minlength: 6
     },
 }, { collection: 'budget'})
 
